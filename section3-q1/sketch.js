@@ -8,31 +8,32 @@ cycle = 200;
 
 
 function setup(){
-  createCanvas(400, 400);
+  createCanvas(windowWidth, windowHeight);
+}
+
+function windowResized(){ 
+  resizeCanvas(windowWidth, windowHeight); 
 }
 
 function draw(){
   background(160, 192, 255);
-  
-
   count = (count + 1) % cycle; //0から99で繰り返される
   // BLANK[1]
-  
   ellipse(width / 2, height / 2, size); //size=半径
 
 
-  if(KeyIsDown(" ".charCodeAt(0))){
+  if(mouseIsPressed){
   
     if(count<25){
       size=2*count;
      }
-     if(count>=25 && count<50){
-      size=100-(2*count);
-     }
-     if(count>=50 && count<75){
+     if(count>25&&count<50){
+      size=100-(2*count)
+      }
+     if(count>50 && count<75){
       size=-100+(2*count);
      }
-     if(count>=75){
+     if(count>75){
       size=200-(2*count);
      }
 
@@ -43,10 +44,10 @@ function draw(){
       size=count;
     }
     else{
-      size=100-(1*count);
+      size=100-count
+    }
     }
   }
-}
 
 
 
